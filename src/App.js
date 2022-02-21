@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Guard } from "@authing/react-ui-components";
+// 引入 css 文件
+import "@authing/react-ui-components/lib/index.min.css";
 
 function App() {
+  const appId = "61f2a25b8b9c6b98d4aa75ce";
+  const onLogin = (userInfo) => {
+    console.log(userInfo);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Guard appId={appId} onLogin={onLogin} />
     </div>
   );
 }
